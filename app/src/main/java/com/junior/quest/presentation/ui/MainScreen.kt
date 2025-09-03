@@ -1,4 +1,4 @@
-package com.junior.quest.ui
+package com.junior.quest.presentation.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,30 +9,32 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.junior.quest.ui.theme.JuniorQuestTheme
+import com.junior.quest.presentation.ui.theme.JuniorQuestTheme
 
 @Preview
 @Composable
 fun MainScreenPreview() {
     JuniorQuestTheme {
-        MainScreen()
+        MainScreenContent(viewModelTest = {})
     }
 }
 
 @Composable
-fun MainScreen() {
-    MainScreenContent()
+fun MainScreen(viewModel: MainViewModel) {
+    MainScreenContent(viewModel::test)
 }
 
 @Composable
-fun MainScreenContent() {
+fun MainScreenContent(
+    viewModelTest: () -> Unit
+) {
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         Column {
             Greeting(
                 name = "Android",
                 modifier = Modifier.padding(innerPadding)
             )
-            Button(onClick = { println("DCD test") }) {
+            Button(onClick = viewModelTest) {
                 Text("View model test")
             }
         }
