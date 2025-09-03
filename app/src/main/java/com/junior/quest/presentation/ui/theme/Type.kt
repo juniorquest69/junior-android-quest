@@ -1,4 +1,4 @@
-package com.junior.quest.ui.theme
+package com.junior.quest.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
